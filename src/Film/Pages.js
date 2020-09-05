@@ -5,6 +5,7 @@ function Pages({count, title, onSendData, number}) {
 
     const minPages = 5
 
+    let isMin = false
     let numPages = []
     let countPages = Math.ceil(count/10)
     let addPages = countPages - number > minPages ? minPages : countPages
@@ -12,16 +13,19 @@ function Pages({count, title, onSendData, number}) {
     let nextPage = number + 1
     
     let i = countPages - number > minPages ? number : countPages - minPages
-
+    if (i <= 0) {
+        i = 1
+        isMin = true
+    } 
     for(; (i < number + addPages) && i <= countPages; i++) numPages.push(i)
     
-    if(number !== 1) {
+    if(number !== 1 && !isMin) {
         numPages.unshift(NaN)
         numPages.unshift(1)
     }
 
     if(number < countPages - minPages) {
-        numPages.push(NaN)
+        if (!isMin) numPages.push(NaN)
         numPages.push(countPages)
     }
 

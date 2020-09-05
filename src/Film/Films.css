@@ -40,6 +40,7 @@
 }
 
 .search__input {
+    font-size: 1rem;
     margin-right: 0.5em;
     border: none;
     height: 2em;
@@ -48,26 +49,48 @@
     transition: all 0.5 ease-in;
     border: 1px solid orange;
     background-color: orange;
-    border-bottom: 1px solid black;
+    
 }
 
 .search-body {
+    border-bottom: 1px solid black;
+    position: relative;
     margin: 0 auto;
     max-width: 15em;
-    position: relative;
 }
 
 .search__button {
     position: absolute;
-    top: 20%;
-    right: 4em;
+    top: 30%;
+    right: 0;
     border: none;
     background-image: url(img/search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: contain;
     height: 1.2em;
     width: 1.2em;
     background-color: orange;
 }
+
+@media screen and (max-width: 1000px) {
+    .search__button {
+        height: 1em;
+        width: 1em;
+    }
+}
+@media screen and (max-width: 700px) {
+    .search__button {
+        height: 0.8em;
+        width: 0.8em;
+    }
+}
+@media screen and (max-width: 400px) {
+    .search__button {
+        height: 0.6em;
+        width: 0.6em;
+    }
+}   
 
 .search__button:hover {
     cursor: pointer;

@@ -9,8 +9,10 @@ function App() {
   const [error, setError] = React.useState({})
 
   function sendData(title, page=1) {
-    fetch(`http://www.omdbapi.com/?s=${title}&page=${page.toString()}&apikey=c9197d74`)
-        .then(response => response.json())
+    fetch(`https://www.omdbapi.com/?s=${title}&page=${page.toString()}&apikey=c9197d74`)
+        .then(response => {
+          return response.json()
+        })
         .then(json => {
           setError({
           Response: json.Response,
